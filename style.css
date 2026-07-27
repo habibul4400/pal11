@@ -1,0 +1,304 @@
+:root{
+    --hot-pink: #ff2d78;
+    --deep-red: #d81159;
+    --soft-pink: #ffd6e8;
+    --cream: #fff5f8;
+    --gold: #ffcf4d;
+    --ink: #4a0d2a;
+    --shadow: rgba(216, 17, 89, 0.35);
+  }
+  *{ box-sizing: border-box; }
+  html,body{
+    margin:0; padding:0; height:100%; width:100%;
+    font-family: 'Hind Siliguri', sans-serif;
+    overflow-x:hidden;
+  }
+  .screen{
+    min-height:100vh; width:100%;
+    display:none;
+    position:relative;
+    overflow:hidden;
+  }
+  .screen.active{ display:flex; flex-direction:column; align-items:center; }
+
+  /* ---------- PAGE 1 ---------- */
+  #page1{
+    background: linear-gradient(160deg, #fff0f5 0%, #ffe1ec 55%, #ffd0e0 100%);
+    justify-content:center;
+    align-items:center;
+    padding: 24px;
+  }
+  .p1-inner{
+    text-align:center;
+    z-index:5;
+  }
+  .p1-eyebrow{
+    font-size: 15px;
+    letter-spacing: 3px;
+    color: var(--deep-red);
+    font-weight:600;
+    margin-bottom: 10px;
+    opacity:.75;
+  }
+  h1.ask{
+    font-family:'Baloo Da 2', sans-serif;
+    font-size: clamp(38px, 9vw, 84px);
+    color: var(--deep-red);
+    margin: 0 0 8px 0;
+    text-shadow: 3px 3px 0 rgba(255,255,255,.6);
+    line-height:1.1;
+  }
+  .p1-sub{
+    font-size: 18px;
+    color: var(--ink);
+    opacity:.7;
+    margin-bottom: 46px;
+  }
+  .btn-row{
+    position:relative;
+    display:flex;
+    gap: 28px;
+    justify-content:center;
+    align-items:center;
+    height: 90px;
+  }
+  .btn{
+    font-family:'Baloo Da 2', sans-serif;
+    font-size: 24px;
+    font-weight:700;
+    padding: 18px 44px;
+    border-radius: 999px;
+    border:none;
+    cursor:pointer;
+    box-shadow: 0 10px 25px var(--shadow);
+    transition: transform .15s ease;
+  }
+  .btn:active{ transform: scale(.95); }
+  #yesBtn{
+    background: linear-gradient(135deg, var(--hot-pink), var(--deep-red));
+    color: white;
+  }
+  #yesBtn:hover{ transform: translateY(-3px) scale(1.03); }
+  #noBtn{
+    background: white;
+    color: var(--deep-red);
+    border: 2px solid var(--hot-pink);
+    position: fixed;
+    z-index: 50;
+  }
+  .floating-heart{
+    position:absolute;
+    color: var(--hot-pink);
+    opacity:.35;
+    pointer-events:none;
+    animation: floatUp 6s linear infinite;
+  }
+  @keyframes floatUp{
+    0%{ transform: translateY(0) rotate(0deg); opacity:0;}
+    10%{opacity:.4;}
+    100%{ transform: translateY(-110vh) rotate(30deg); opacity:0;}
+  }
+
+  /* ---------- PAGE 2 : MENU ---------- */
+  #page2{
+    background: linear-gradient(135deg, #ff5e9e 0%, #e8175d 45%, #ff2d78 100%);
+    padding: 40px 20px 80px;
+    align-items:center;
+  }
+  .p2-header{
+    text-align:center;
+    color: white;
+    margin-bottom: 36px;
+  }
+  .p2-header h2{
+    font-family:'Baloo Da 2', sans-serif;
+    font-size: clamp(28px, 6vw, 46px);
+    margin:0;
+    text-shadow: 2px 2px 0 rgba(0,0,0,.15);
+  }
+  .p2-header p{
+    margin: 8px 0 0;
+    opacity:.9;
+    font-size:16px;
+  }
+  .menu-grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 22px;
+    width: 100%;
+    max-width: 980px;
+  }
+  .food-card{
+    background: var(--cream);
+    border-radius: 22px;
+    padding: 22px;
+    text-align:center;
+    cursor:pointer;
+    box-shadow: 0 14px 30px rgba(0,0,0,.18);
+    transition: transform .18s ease, box-shadow .18s ease;
+    position:relative;
+    border: 3px solid transparent;
+  }
+  .food-card:hover{
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0,0,0,.25);
+    border-color: var(--gold);
+  }
+  .food-emoji{ font-size: 58px; margin-bottom: 6px; }
+  .food-name{
+    font-family:'Baloo Da 2', sans-serif;
+    font-size: 20px;
+    color: var(--deep-red);
+    font-weight:700;
+    margin: 4px 0;
+  }
+  .food-price{
+    font-size: 17px;
+    color: var(--ink);
+    font-weight:600;
+    background: var(--soft-pink);
+    display:inline-block;
+    padding: 4px 16px;
+    border-radius: 999px;
+    margin-top: 6px;
+  }
+  .back-link{
+    margin-top: 34px;
+    color: white;
+    opacity:.85;
+    cursor:pointer;
+    text-decoration: underline;
+    font-size: 14px;
+  }
+
+  /* ---------- PAGE 3 : PAYMENT ---------- */
+  #page3{
+    background: linear-gradient(160deg, #fff0f5, #ffe1ec);
+    justify-content:center;
+    align-items:center;
+    padding: 30px 16px;
+  }
+  .pay-card{
+    background:white;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 24px;
+    box-shadow: 0 20px 50px rgba(0,0,0,.18);
+    overflow:hidden;
+  }
+  .pay-topbar{
+    background: #e2136e;
+    color:white;
+    padding: 20px 22px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    font-family:'Baloo Da 2', sans-serif;
+  }
+  .pay-topbar .logo{
+    font-weight:800;
+    font-size: 22px;
+    letter-spacing: 1px;
+  }
+  .pay-topbar .badge{
+    font-size: 11px;
+    background: rgba(255,255,255,.25);
+    padding: 3px 10px;
+    border-radius: 999px;
+  }
+  .pay-body{ padding: 24px 22px 30px; }
+  .order-summary{
+    background: var(--soft-pink);
+    border-radius: 14px;
+    padding: 14px 16px;
+    margin-bottom: 22px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  .order-summary .name{ font-weight:600; color: var(--ink); font-size:15px;}
+  .order-summary .amt{ font-weight:800; color: var(--deep-red); font-size:19px;}
+  .field{ margin-bottom: 16px; }
+  .field label{
+    display:block;
+    font-size: 13px;
+    color:#888;
+    margin-bottom: 6px;
+    font-weight:600;
+  }
+  .field input{
+    width:100%;
+    padding: 13px 14px;
+    border-radius: 12px;
+    border: 1.5px solid #eee;
+    background: #fafafa;
+    font-size: 16px;
+    letter-spacing: 1px;
+    outline:none;
+  }
+  .field input:focus{ border-color: #e2136e; background:white; }
+  .pin-dots{
+    display:flex; gap:10px; justify-content:center; margin: 10px 0 4px;
+  }
+  .pin-dots span{
+    width:14px;height:14px;border-radius:50%;
+    background:#eee; display:inline-block;
+    transition: background .15s ease;
+  }
+  .pin-dots span.filled{ background: #e2136e; }
+  .pay-btn{
+    width:100%;
+    padding: 15px;
+    border-radius: 14px;
+    border:none;
+    background: #e2136e;
+    color:white;
+    font-size: 17px;
+    font-weight:700;
+    font-family:'Baloo Da 2', sans-serif;
+    cursor:pointer;
+    margin-top: 6px;
+  }
+  .pay-btn:disabled{ opacity:.5; cursor:not-allowed; }
+  .pay-btn:active:not(:disabled){ transform: scale(.98); }
+  .secure-note{
+    text-align:center; font-size:12px; color:#999; margin-top:14px;
+  }
+  .step{ display:none; }
+  .step.active{ display:block; }
+
+  /* success */
+  .success-wrap{ text-align:center; padding: 10px 0; }
+  .success-check{
+    width:76px; height:76px; border-radius:50%;
+    background: #16c784;
+    display:flex; align-items:center; justify-content:center;
+    margin: 0 auto 18px;
+    font-size: 40px; color:white;
+  }
+  .success-wrap h3{
+    font-family:'Baloo Da 2', sans-serif;
+    color: var(--ink); margin: 0 0 6px;
+  }
+  .success-wrap p{ color:#888; font-size:14px; margin: 4px 0; }
+  .trxid{
+    background: #f5f5f5; padding: 10px; border-radius: 10px;
+    font-size:13px; color:#555; margin-top: 14px; letter-spacing:.5px;
+  }
+  .spinner{
+    width: 34px; height:34px; border-radius:50%;
+    border: 4px solid var(--soft-pink); border-top-color: #e2136e;
+    margin: 20px auto; animation: spin .8s linear infinite;
+  }
+  @keyframes spin{ to{ transform: rotate(360deg); } }
+  .again-btn{
+    margin-top: 20px;
+    background: transparent;
+    border: 2px solid #e2136e;
+    color:#e2136e;
+    padding: 10px 26px;
+    border-radius: 999px;
+    font-weight:700;
+    cursor:pointer;
+    font-family:'Baloo Da 2', sans-serif;
+  }

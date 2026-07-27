@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Panel — Jaan Kichu Khaba</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@600;700;800&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+<!-- ============ LOGIN SCREEN ============ -->
+<div id="loginScreen" class="screen active">
+  <div class="login-card">
+    <div class="login-logo">💗 Admin Panel</div>
+    <p class="login-sub">অর্ডার ও পেমেন্ট দেখতে লগইন করুন</p>
+
+    <div class="field">
+      <label>আইডি</label>
+      <input type="text" id="loginUser" placeholder="admin">
+    </div>
+    <div class="field">
+      <label>পাসওয়ার্ড</label>
+      <input type="password" id="loginPass" placeholder="••••••••">
+    </div>
+    <button class="login-btn" id="loginBtn">লগইন</button>
+    <p class="login-error" id="loginError"></p>
+  </div>
+</div>
+
+<!-- ============ DASHBOARD ============ -->
+<div id="dashScreen" class="screen">
+  <div class="topbar">
+    <div class="topbar-title">💗 অর্ডার ড্যাশবোর্ড</div>
+    <div class="topbar-actions">
+      <button id="refreshBtn" class="ghost-btn">রিফ্রেশ</button>
+      <button id="logoutBtn" class="ghost-btn danger">লগআউট</button>
+    </div>
+  </div>
+
+  <div class="stats-row" id="statsRow"></div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>অর্ডার নং</th>
+          <th>সময়</th>
+          <th>খাবার</th>
+          <th>দাম</th>
+          <th>ফোন নম্বর</th>
+          <th>ট্রানজেকশন আইডি</th>
+          <th>স্ট্যাটাস</th>
+        </tr>
+      </thead>
+      <tbody id="ordersBody">
+        <tr><td colspan="7" class="empty">লোড হচ্ছে...</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script src="admin.js"></script>
+</body>
+</html>

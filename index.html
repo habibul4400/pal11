@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>জান, কিছু খাবা?</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@500;600;700;800&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ================= PAGE 1 ================= -->
+<div id="page1" class="screen active">
+  <div class="p1-inner">
+    <div class="p1-eyebrow">এই যে শোনো...</div>
+    <h1 class="ask">জান, কিছু খাবা?</h1>
+    <div class="p1-sub">উত্তর দাও তো একটু 👀</div>
+    <div class="btn-row">
+      <button id="yesBtn" class="btn">হ্যাঁ 💗</button>
+      <button id="noBtn" class="btn">না</button>
+    </div>
+  </div>
+</div>
+
+<!-- ================= PAGE 2 : MENU ================= -->
+<div id="page2" class="screen">
+  <div class="p2-header">
+    <h2>যা মন চায় বেছে নাও 🍽️</h2>
+    <p>একটা খাবারে ক্লিক করলেই পেমেন্টে চলে যাবে</p>
+  </div>
+  <div class="menu-grid" id="menuGrid"></div>
+  <div class="back-link" id="backToP1">← আবার প্রশ্নে ফিরে যাই</div>
+</div>
+
+<!-- ================= PAGE 3 : PAYMENT ================= -->
+<div id="page3" class="screen">
+  <div class="pay-card">
+    <div class="pay-topbar">
+      <span class="logo">bKash</span>
+      <span class="badge">Demo Payment</span>
+    </div>
+    <div class="pay-body">
+
+      <div class="order-summary">
+        <span class="name" id="orderName">—</span>
+        <span class="amt" id="orderAmt">৳0</span>
+      </div>
+
+      <!-- step 1: number -->
+      <div class="step active" id="stepNumber">
+        <div class="field">
+          <label>bKash অ্যাকাউন্ট নম্বর</label>
+          <input type="tel" id="phoneInput" maxlength="11" placeholder="01XXXXXXXXX">
+        </div>
+        <button class="pay-btn" id="toPinBtn">এগিয়ে যান</button>
+      </div>
+
+      <!-- step 2: pin -->
+      <div class="step" id="stepPin">
+        <div class="field">
+          <label style="text-align:center;">আপনার ৪ সংখ্যার পিন দিন</label>
+          <input type="password" id="pinInput" maxlength="4" inputmode="numeric" style="text-align:center; letter-spacing:8px; font-size:22px;" placeholder="••••">
+        </div>
+        <div class="pin-dots" id="pinDots">
+          <span></span><span></span><span></span><span></span>
+        </div>
+        <button class="pay-btn" id="confirmPayBtn" disabled>নিশ্চিত করুন ও পে করুন</button>
+        <div class="secure-note">🔒 এটি একটি ডেমো/সিমুলেটেড পেমেন্ট — কোনো প্রকৃত টাকা কাটা হবে না</div>
+      </div>
+
+      <!-- step 3: loading -->
+      <div class="step" id="stepLoading">
+        <div class="success-wrap">
+          <div class="spinner"></div>
+          <p>পেমেন্ট প্রসেস হচ্ছে...</p>
+        </div>
+      </div>
+
+      <!-- step 4: success -->
+      <div class="step" id="stepSuccess">
+        <div class="success-wrap">
+          <div class="success-check">✓</div>
+          <h3>পেমেন্ট সফল হয়েছে!</h3>
+          <p id="successFood"></p>
+          <div class="trxid" id="trxId"></div>
+          <button class="again-btn" id="orderAgainBtn">আরেকটা অর্ডার করি</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
